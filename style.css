@@ -1,0 +1,16 @@
+/* body {
+    height: 4000px;
+} */
+
+canvas {
+    vertical-align: bottom;
+}
+
+html,
+body {
+    position: fixed;
+}
+
+section {
+    position: fixed;
+}
