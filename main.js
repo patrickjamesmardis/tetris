@@ -28,18 +28,24 @@ const section = document.querySelector("section");
 section.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
-const gX = new THREE.GridHelper(1000, 10, 0x777777, 0x777777);
-const gY = new THREE.GridHelper(1000, 10, 0x777777, 0x777777);
-const gZ = new THREE.GridHelper(1000, 10, 0x777777, 0x777777);
-gX.position.set(50, -50, 50);
-gZ.rotation.z = Math.PI / 2;
-gZ.position.set(550, 450, 50);
-gY.rotation.z = Math.PI / 2;
-gY.rotation.y = Math.PI / 2;
-gY.position.set(50, 450, 550);
-scene.add(gX);
-scene.add(gY);
-scene.add(gZ);
+
+const makeBoxGrid = (size, segments, color1, color2, x, y, z, rX, rY, rZ) => {
+    const grid = new THREE.GridHelper(size, segments, color1, color2);
+    grid.position.set(x, y, z);
+    grid.rotation.x = rX;
+    grid.rotation.y = rY;
+    grid.rotation.z = rZ;
+
+    scene.add(grid);
+    return grid;
+};
+const deg90 = Math.PI / 2;
+const gXZ1 = makeBoxGrid(1000, 10, 0x777777, 0x777777, 50, -50, 50, 0, 0, 0);
+const gXZ2 = makeBoxGrid(1000, 10, 0x777777, 0x777777, 50, 950, 50, 0, 0, 0);
+const gXY1 = makeBoxGrid(1000, 10, 0x777777, 0x777777, 50, 450, 550, 0, deg90, deg90);
+const gXY2 = makeBoxGrid(1000, 10, 0x777777, 0x777777, 50, 450, -450, 0, deg90, deg90);
+const gYZ1 = makeBoxGrid(1000, 10, 0x777777, 0x777777, 550, 450, 50, 0, 0, deg90);
+const gYZ2 = makeBoxGrid(1000, 10, 0x777777, 0x777777, -450, 450, 50, 0, 0, deg90);
 
 const camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 30000);
 camera.position.set(-1000, 1000, -2300);
