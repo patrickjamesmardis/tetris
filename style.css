@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 /* body {
     height: 4000px;
 } */
@@ -13,4 +15,15 @@ body {
 
 section {
     position: fixed;
+}
+
+header {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 400px;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Josefin Sans';
+    line-height: 1.4;
 }
