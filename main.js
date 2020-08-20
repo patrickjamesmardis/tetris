@@ -533,6 +533,9 @@ window.addEventListener("keydown", (e) => {
     switch (e.key) {
         case "Enter":
             boxControl.detach(currentObj.object);
+            scene.remove(box1XY);
+            scene.remove(box1XZ);
+            scene.remove(box1YZ);
             newShape();
             break;
     }
